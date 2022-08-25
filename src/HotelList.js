@@ -4,6 +4,7 @@ import Navbar from "./navbar.js";
 import Proprieties from "./propieties";
 import {BrowserRouter,Route,Routes,NavLink} from 'react-router-dom'
 import { useDispatch, useSelector } from "react-redux";
+import Click from "./click.js";
 import './HotelListe.css'
 function HotelList()
 {
@@ -20,21 +21,17 @@ function HotelList()
           <Route path='/' element={
             <>
              <Navbar></Navbar>
-            
-         
-          <div className='hotel'>
-        {hotels.filter((el)=>el.locate.toLowerCase().includes(filters.toLowerCase()))
-        .map((e,index ) => (
-          <NavLink to={"/"}>
-            
-            <Proprieties  e = {e}/* name={e.name} image={e.image} rate={e.rate} price={e.price} locate={e.locate} */></Proprieties>
-            
-            
-          </NavLink>
-        ))}
-          </div>
+              <div className='hotel'>
+              {hotels.filter((el)=>el.locate.toLowerCase().includes(filters.toLowerCase()))
+              .map((e,index ) => (
+              <NavLink to={"/"+index}>
+                <Proprieties  e = {e}/* name={e.name} image={e.image} rate={e.rate} price={e.price} locate={e.locate} */></Proprieties>
+              </NavLink>
+             ))}
+              </div>
            </>
-        }></Route>
+          }></Route>
+         <Route path='/:id' element={ <Click></Click> }></Route>
         
         
       </Routes>
@@ -43,7 +40,5 @@ function HotelList()
 
       </div>
     ); 
-    
-      
 }
 export default HotelList

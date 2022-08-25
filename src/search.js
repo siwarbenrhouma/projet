@@ -1,10 +1,14 @@
 import React,{useState} from "react"
+import { useDispatch, useSelector } from "react-redux"
 import './search.css'
 
 
 function Search()
 {
     const [location, setLocation] = useState('')
+    const filters=useSelector(state=>state.hotelReducer.filter)
+    const [filter,setFilter]=useState(filters)
+    const dispatch =useDispatch()
     
     return (<div className="sear">
         <h3 style={{justifyContent:"center"}}>Hotel à Tunisie<br/></h3>
