@@ -1,0 +1,28 @@
+.hotel div{
+    display: flex;
+    flex-direction: column;
+   align-items: flex-start;
+
+   
+   }
+   .hotel{
+       display: flex;
+       gap: 5vw;
+       padding: 2vw;
+       flex-wrap: wrap;
+       justify-content: center;
+   }
+  span{
+    background-color: transparent;
+    box-shadow: 0 ;
+  }
+  .card{
+    width: 350px;
+   
+  }
+  .card img{
+    width: 350px;
+  }
+  .desc{
+    padding: 0 20px;
+  }

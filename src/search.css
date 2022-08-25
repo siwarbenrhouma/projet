@@ -1,0 +1,34 @@
+.sear{
+    display: flex;
+    justify-content: center;
+    padding: 50PX;
+    border: 3px double black;
+    background-color: brown;
+    box-shadow: 10px 5px 5px gray;
+    gap: 5vw;
+}
+.sear h3{
+    display: flex;
+    justify-content: center;
+}
+.inp{
+   
+    background-color: white;
+    display: flex;
+
+    align-items: center;
+    padding: 0 5px;
+
+   
+}
+input{
+    border: 0; outline: none;
+
+}
+button{
+    border: 0;
+}
+select{
+    outline: none;
+    border: 0;
+}

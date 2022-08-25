@@ -1,0 +1,26 @@
+span{
+    display:flex;
+    justify-content: center;
+    background-color: grey;
+
+
+}
+h1{
+    display:flex;
+    justify-content: center;
+
+   
+}
+h6{
+    color: grey;
+}
+span i{
+    color: grey;
+}
+
+a{
+    text-decoration: none;
+}
+input{
+    border:  0;
+}
