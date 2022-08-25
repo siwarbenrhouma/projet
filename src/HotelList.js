@@ -29,14 +29,16 @@ function HotelList()
               </NavLink>
              ))}
               </div>
+              <AddHotel> </AddHotel>
            </>
           }></Route>
          <Route path='/:id' element={ <Click></Click> }></Route>
         
         
       </Routes>
+
       </BrowserRouter>
-              <AddHotel hotel={hotel} setHotel={setHotel}> </AddHotel>
+              
 
       </div>
     ); 
