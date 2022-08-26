@@ -1,5 +1,7 @@
 import React,{useState} from "react"
 import { useDispatch, useSelector } from "react-redux"
+import { locationFilter, rateFilter } from "./Redux/actions/actions"
+import StarRatingComponent from 'react-star-rating-component';
 import './search.css'
 
 
@@ -9,13 +11,23 @@ function Search()
     const filters=useSelector(state=>state.hotelReducer.filter)
     const [filter,setFilter]=useState(filters)
     const dispatch =useDispatch()
-    
-    return (<div className="sear">
+    const searchHandler = (e)=>{
+        e.preventDefault()
+        dispatch(locationFilter(e.target.value))
+    }
+    const rateHandler= (e)=>{
+        console.log(e)
+        // e.preventDefault()
+        dispatch(rateFilter(e))
+    }
+
+    return (
+        <div className="sear">
         <h3 style={{justifyContent:"center"}}>Hotel à Tunisie<br/></h3>
         <div className="inp">
         <i className="fa-solid fa-location-dot"></i>
         {/* <input type={"search"} placeholder="locate" value={location} /> */}
-        <select onChange={(e)=>setLocation(e.target.value)}>
+        <select onChange={searchHandler}>
         <option></option>
          <option> El Jem</option>
          <option>Bizerte</option>
@@ -39,13 +51,11 @@ function Search()
         <option>Gammarth</option>
         </select>
         </div>
-        <div className="inp">
-        <input type={"date"} placeholder="date d'arrivée"/>
+        <div id="njoum">
+        <StarRatingComponent 
+    name='rating' /* name of the radio input, it is required */ onStarClick={rateHandler}
+        />
         </div>
-        <div className="inp">
-        <input type={"date"} placeholder="date de départ"/>
-        </div>
-        <button>search</button>
          </div>
     )
 }

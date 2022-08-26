@@ -1,4 +1,4 @@
-import { actionType, ADD_HOTEL } from "../actions/types"
+import { actionType, ADD_HOTEL, FILTER_LOCATION, FILTER_RATE } from "../actions/types"
 
 const initialState = {
     hotelList:[
@@ -13,9 +13,14 @@ const initialState = {
         {id: "5",name:"Thapsus Beach Resort",image:"https://image.resabooking.com/images/image_panoramique/Thapsus_Beach_Resort_2.jpg",rate:4,locate:"Mahdia",price:"59"},
         {id:"6" ,name:"Les Pyramides hotels club & spa",image:"https://image.resabooking.com/images/hotel/Pyramides_4.jpg",rate:3,locate:"nabeul",price:"84 DT"},
         {id:"7" ,name:"Khayem garden beach & spa",image:"https://image.resabooking.com/images/image_panoramique/Khayam_Garden_Beach_&_Spa_2.jpg",rate:4,locate:"nabeul",price:"142 DT"},
-       
+        {id:"8" ,name:"Dar Ismail",image:"https://image.resabooking.com/images/hotel/Dar_Ismail_.jpeg",rate:5,locate:"Tabarka",price:"102 DT"},
+        {id:"9" ,name:"Club Palm Azur",image:"https://image.resabooking.com/images/image_panoramique/club_palm_azur_2.jpg",rate:2,locate:"Djerba",price:"150 DT"},
+        {id:"10" ,name:"Pacha Hotel",image:"https://image.resabooking.com/images/image_panoramique/pacha_hotel_2.jpg",rate:3,locate:"Sfax",price:"54 DT"},
+        {id:"11" ,name:"Phebus",image:"https://image.resabooking.com/images/hotel/Phebus_Gammarth_.png",rate:2,locate:"Gammarth",price:"50 DT"},
+
     ],
-    filter:''
+    filter:'',
+    rateFilter:0
 }
 const hotelReducer = (state=initialState,{type,payload} ) => { 
     switch (type) {
@@ -27,8 +32,16 @@ const hotelReducer = (state=initialState,{type,payload} ) => {
                 ...state,
                 hotelList : [...state.hotelList , payload ]
             }
-               
-
+            case FILTER_LOCATION:
+                return{
+                    ...state,
+                    filter: payload
+                }       
+            case FILTER_RATE:
+                return{
+                    ...state,
+                    rateFilter:payload
+                } 
         default:
             return state
     }

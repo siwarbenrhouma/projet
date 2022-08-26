@@ -8,10 +8,10 @@ import Click from "./click.js";
 import './HotelListe.css'
 function HotelList()
 {
-  const {hotelList:hotels,filter:filters}=useSelector(state=>state.hotelReducer)
-  console.log(hotels);
-  console.log(filters);
- 
+  const {hotelList:hotels,filter:filters,rateFilter:rateFilter }=useSelector(state=>state.hotelReducer)
+  console.log("Hotel list: ",hotels);
+  console.log("Filter location:",filters);
+  console.log("rateFilter",rateFilter);
   
   const [hotel,setHotel]=useState(hotels)
   
@@ -22,7 +22,7 @@ function HotelList()
             <>
              <Navbar></Navbar>
               <div className='hotel'>
-              {hotels.filter((el)=>el.locate.toLowerCase().includes(filters.toLowerCase()))
+              {hotels.filter((el)=>el.locate.toLowerCase().includes(filters.toLowerCase()) && el.rate>=rateFilter)
               .map((e,index ) => (
               <NavLink to={"/"+index}>
                 <Proprieties  e = {e}/* name={e.name} image={e.image} rate={e.rate} price={e.price} locate={e.locate} */></Proprieties>

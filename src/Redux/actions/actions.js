@@ -1,4 +1,4 @@
-import { ADD_HOTEL } from "./types"
+import { ADD_HOTEL, FILTER_LOCATION, FILTER_RATE } from "./types"
 import {v4 as uuidv4} from 'uuid'
 
 
@@ -10,14 +10,22 @@ import {v4 as uuidv4} from 'uuid'
 //     }
 
 //  }
-// export const filterfunc = (payloadfilter) => { 
-//     return {
-//         type:filtertype,
-//         payload:payloadfilter
+export const locationFilter = (locationFilter) => { 
+    return {
+        type:FILTER_LOCATION,
+        payload:locationFilter
 
-//     }
+    }
     
-//  }
+ }
+ export const rateFilter = (rateFilter) => { 
+    return {
+        type:FILTER_RATE,
+        payload:rateFilter
+
+    }
+    
+ }
  export const AddFunc = (newHotel) => { 
     return {
         type:ADD_HOTEL,
